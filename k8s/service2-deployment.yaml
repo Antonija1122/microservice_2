@@ -13,8 +13,8 @@ spec:
         component: service2
     spec:
       containers:
-        - name: service1
-          image: antonijaa/service2:v_2
+        - name: service2
+          image: antonijaa/service2
           ports:
             - containerPort: 8080
           env:
