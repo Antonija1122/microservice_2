@@ -37,12 +37,15 @@ jobs:
         - "sudo chown -R travis: /home/travis/.minikube/"
         - eval "$(minikube docker-env --profile=minikube)" && export DOCKER_CLI='docker'
           #- minikube addons enable ingress
-          #- bash ./pipeline_scripts/before_install.sh
         - bash ./pipeline_scripts/deploy_to_staging.sh
-          #- bash ./pipeline_scripts/smoke_test.sh
         - echo "skiping e2e testing"
         - minikube ip
       if: branch = master
+    - stage: smoke_e2e_test
+      script:
+        #- bash ./pipeline_scripts/push_artifact.sh
+         - echo skipping smoke test in travis ci -> do it localy
+         - echo "skiping e2e testing"
     - stage: deploy_to_production
       script:
         # Download kubectl, which is a requirement for using minikube.

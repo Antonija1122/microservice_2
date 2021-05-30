@@ -11,10 +11,10 @@ SERVICE1_URL = f"http://{service1_host}:{service1_port}"
 #print(SERVICE1_URL)
 
 url=sys.stdin.readline()
-#urlpom="https://crontab.guru/#0_8_*_*_*"
+
 try:
     message = requests.get(url).text
-    print(message)
+    #print(message)
 except MissingSchema:
     print("invalid url!!!!!")
     message=""
@@ -22,7 +22,7 @@ except MissingSchema:
 #print(url)
 data = ["md5", message]
 
-print(SERVICE1_URL, "\n".join(data))
+#print(SERVICE1_URL, "\n".join(data))
 print(requests.post(SERVICE1_URL, data="\n".join(data)))
 print("promjena s volumes")
 
